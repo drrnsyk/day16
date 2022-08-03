@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <Style>
+        .center-it {
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            
+        }
+    </Style>
+</head>
+    <body>
+        
+        <div>
+            <h1 class="center-it">Weather App</h1>
+        </div>
+
+        <form method="GET" action="/weather">
+
+            <div class="center-it">
+                <input type="text" name="city" size="20" placeholder="cityname">
+                <button type="submit">Get Weather</button>
+            </div>
+
+        </form>
+
+    </body>
+</html>

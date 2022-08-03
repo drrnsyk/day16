@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Result</title>
+</head>
+    <body>
+        <h1>Weather for <span data-th-text="${city}"></span></h1>
+
+        <table>
+            <tr data-th-each="l: ${list}">
+                <td>
+                    <img data-th-src="@{http://openweathermap.org/img/wn/{icon}@2x.png(icon=${l.icon})}" alt="">
+                </td>
+                <td data-th-text="${l.main}"></td>
+                <td data-th-text="${l.description}"></td>
+            </tr>
+        </table>
+
+    </body>
+</html>
