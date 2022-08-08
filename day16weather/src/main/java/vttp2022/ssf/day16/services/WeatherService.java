@@ -93,26 +93,36 @@ public class WeatherService {
             payload = opt.get();
             System.out.printf(">>>> cache: %s\n", payload);
         }
-        
-        // convert payload to json object
-        // convert the string to a reader
+
+
+        // parsing from String to Json object?
+        // convert payload from string to json object
+        // create a StringReader to read the payload string
         Reader strReader = new StringReader(payload);
-        // create a json reader from reader
+        // create a JsonReader to read the StringReader
         JsonReader jsonReader = Json.createReader(strReader);
-        // read the payload as Json object
+        // read the payload as a json object (entire API result)
         JsonObject weatherResult = jsonReader.readObject();
-        // get array from the json object
+
+        // get array (weather array portion) from the json object (entire API result)
         JsonArray cities = weatherResult.getJsonArray("weather");
+
+        // declare a new list
         List<Weather> list = new LinkedList<>();
         
+        System.out.println(cities.size());
+        // cities is a json array with size = 1
+        System.out.println(cities); // prints entire array
+        System.out.println(cities.get(0)); // prints first item (jsonobject) in array
+        System.out.println(cities.getJsonObject(0).getString("main"));
+
         for (int i = 0; i < cities.size(); i++) {
-            // weather[0]
             JsonObject jo = cities.getJsonObject(i);
+            list.add(Weather.create(jo));
             // Weather w = new Weather();
             // w.setMain(jo.getString("main"));
             // w.setDescription(jo.getString("description"));
             // w.setIcon(jo.getString("icon"));
-            list.add(Weather.create(jo));
         }
 
         return list;

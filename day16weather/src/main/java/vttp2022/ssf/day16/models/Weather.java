@@ -38,12 +38,12 @@ public class Weather {
     }
 
     // model to json
-    public JsonObject toJson() {
-        return Json.createObjectBuilder()
-            .add("main", main)
-            .add("description", description)
-            .add("icon", icon)
-            .build();
-    }
+    // public JsonObject toJson() {
+    //     return Json.createObjectBuilder()
+    //         .add("main", main)
+    //         .add("description", description)
+    //         .add("icon", icon)
+    //         .build();
+    // }
 
 }
